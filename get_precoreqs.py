@@ -66,7 +66,7 @@ for url in urls:
         else:
             co = coreqs.group(1)
         if coursename != None:
-            precolist.append((coursename.group(1), pre, co))
+            precolist.append((coursename.group(1), re.sub(r"[.]", r"", pre), re.sub(r"[.]", r"", co)))
 
 goodpreco = []
 badpreco = []
