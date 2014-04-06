@@ -2,6 +2,7 @@ import urllib2
 import string
 import re
 import itertools
+import os.path
 
 urlstart = "http://coursecatalog.web.cmu.edu"
 urls = ["/servicesandoptions/intercollegeprograms/bxaintercollege/courses/",
@@ -67,6 +68,25 @@ for url in urls:
         if coursename != None:
             precolist.append((coursename.group(1), pre, co))
 
+goodpreco = []
+badpreco = []
 
-for p in precolist:
-    print(p)
+for (a,b,c) in precolist:
+    if re.search(r"[^0-9andor()\s-]", b) == None and re.search(r"[^0-9andor()\s-]", c) == None:
+        goodpreco.append((a,b,c))
+    else:
+        badpreco.append((a,b,c))
+
+goodf = open('preco1.txt','w')
+for (a,b,c) in goodpreco:
+    goodf.write(a + '\n')
+    goodf.write(b + '\n')
+    goodf.write(c + '\n')
+goodf.close()
+
+badf = open('preco2_editplz.txt','w')
+for (a,b,c) in badpreco:
+    badf.write(a + '\n')
+    badf.write(b + '\n')
+    badf.write(c + '\n')
+badf.close()
