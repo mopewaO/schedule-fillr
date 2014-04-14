@@ -3,3 +3,8 @@
 *.pyc
 *~
 local_settings.py
+preco1.txt
+preco2.txt
+preco2_editplz.txt
+db.sqlite3
+
