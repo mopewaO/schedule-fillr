@@ -90,3 +90,5 @@ for (a,b,c) in badpreco:
     badf.write(b + '\n')
     badf.write(c + '\n')
 badf.close()
+
+print "Please edit preco2_editplz.txt, copy the entire fixed contents of the file to the end of preco1.txt, and then run import_precoreqs.py"
