@@ -8,7 +8,7 @@ def index(request):
     context = RequestContext(request)
 
     # dict to pass to template engine as its context
-    context_dict ={'boldmessage': "I am bold font from the context"}
+    context_dict = {}
 
     # return rendered response to send to client
     return render_to_response('homepage/index.html', context_dict, context);

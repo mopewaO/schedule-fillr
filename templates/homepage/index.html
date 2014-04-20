@@ -1,75 +1,25 @@
-<!DOCTYPE html>
+{% extends 'schedule-fillr/base.html' %}
 
 {% load static %}
 
-<html lang="en">
+{% block title %}Schedule-fillr -- Home{% endblock %}
 
-  <head>
-    <title>Schedule-fillr</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-    <link href="{% static "css/custom.css" %}" rel="stylesheet">
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-    </script>
-    <script src="{%static "js/bootstrap.min.js" %}"></script>
-  </head>
-  
-  <body>
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Schedule-fillr</a> 
-        </div>
-	
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#"> Setup</a></li>
-            <li><a href="#">Calendar</a></li>
-          </ul>
-	  <ul class="nav navbar-nav navbar-right">
-	    <li><a href="#"> About Us</a></li>
-	</div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <div class = "container">
-      <div class="jumbotron">
-	<div class="row">
-          <div class="col-md-6">
-	    <img class="img-responsive img-rounded" src="{% static "images/place_holder.gif" %}">
-          </div>
+{% block body_block %}
+<div class = "container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-6">
+	<img class="img-responsive img-rounded" src="{% static "images/place_holder.gif" %}">
+      </div>
 	  
-          <div class="col-md-6">
-            <h1 class="text-center"><span class="label label-primary">Schedule-fillr</span></h1><br>
-            <p class="text-center">
-	      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar diam vel nisl cursus, ullamcorper imperdiet turpis vestibulum. Mauris ut magna lorem. In lacinia quis est lacinia aliquam. Nulla egestas ligula porta sagittis suscipit. Mauris semper ligula vel fringilla egestas. In aliquet vel sapien sit amet semper. Etiam egestas sapien sed est lobortis, nec luctus odio commodo. Aliquam ac pellentesque enim. Donec cursus fringilla sollicitudin. Phasellus quam neque, interdum ut lobortis eu, iaculis in velit. Morbi dapibus lectus neque, et sollicitudin arcu mattis quis.
-	    </p>
-          </div>
-	</div><!-- /.jumbotron -->
-      </div><!-- /.container -->
-  </body>
-
-  <hr>
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">&copy; 2014 </div>
-
-        <div class="col-md-6">
-            <p class="text-right"><a href="#">Contact Us</a></p>
-        </div>
-
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-  </footer>
-
-</html>
+      <div class="col-md-6">
+        <h1 class="text-center"><span class="label label-primary">Schedule-fillr</span></h1><br>
+        <p class="text-center">
+	  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar diam vel nisl cursus, ullamcorper imperdiet turpis vestibulum. Mauris ut magna lorem. In lacinia quis est lacinia aliquam. Nulla egestas ligula porta sagittis suscipit. Mauris semper ligula vel fringilla egestas. In aliquet vel sapien sit amet semper. Etiam egestas sapien sed est lobortis, nec luctus odio commodo. Aliquam ac pellentesque enim. Donec cursus fringilla sollicitudin. Phasellus quam neque, interdum ut lobortis eu, iaculis in velit. Morbi dapibus lectus neque, et sollicitudin arcu mattis quis.
+	</p>
+      </div>
+    </div><!-- row -->
+  </div><!-- /.jumbotron -->
+</div><!-- /.container -->
+    
+{% endblock %}
