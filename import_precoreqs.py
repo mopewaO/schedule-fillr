@@ -1,4 +1,7 @@
 import os
+import time
+import datetime
+import apis
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "schedule_fillr.settings")
 from www.models import Course, Lecture, Recitation, Clause
 
@@ -50,6 +53,15 @@ def parse_reqs(reqs):
   clause.save()
   
   return clause
+
+schedule = apis.Scheduling(app_id="574abff5-5e8c-4e9b-9188-b74a8b03fc4c",app_secret_key="RUNXPkingiQ-sGvMkFHwe1We6_8FYhUiIdrCgTC4T2yeSJUUgd-EFEOy")
+
+nsem = ''
+today = datetime.date.today()
+if today.month in range(1,6):
+  nsem = 'F' + str(today.year)[2:]
+else:
+  nsem = 'S' + str(today.year+1)[2:]
       
 classes = []
 goodf = open("preco1.txt","r")
@@ -60,11 +72,56 @@ while True:
   pre = goodf.readline()
   co = goodf.readline()
   
+  print "Getting data for " + cn,
+  
   course = Course()
   course.department = cn[0:2]
   course.number = cn[3:]
   classes.append((cn,pre,co))
   course.save()
+  
+  cinfo = schedule.course(nsem, course_number=(cn[0:2]+cn[3:-1]))
+  if cinfo != None:
+    course.units = int(cinfo["units"])
+    course.save()
+  
+    for linfo in cinfo["lectures"]:
+      if linfo["time_start"] != "TBA":
+        lecture = Lecture()
+        lecture.starttime = linfo["time_start"]
+        lecture.endtime = linfo["time_end"]
+        lecture.monday = "M" in linfo["days"]
+        lecture.tuesday = "T" in linfo["days"]
+        lecture.wednesday = "W" in linfo["days"]
+        lecture.thursday = "R" in linfo["days"]
+        lecture.friday = "F" in linfo["days"]
+        lecture.saturday = "S" in linfo["days"]
+        lecture.sunday = "U" in linfo["days"]
+        lecture.professor = linfo["instructors"]
+        lecture.number = linfo["section"][-1:]
+        lecture.save()
+    
+        course.lectures.add(lecture)
+        course.save()
+    
+        if "recitations" in linfo:
+          for rinfo in linfo["recitations"]:
+            if rinfo["time_start"] != "TBA":
+              recitation = Recitation()
+              recitation.letter = rinfo["section"]
+              recitation.starttime = rinfo["time_start"]
+              recitation.endtime = rinfo["time_end"]
+              recitation.monday = "M" in rinfo["days"]
+              recitation.tuesday = "T" in rinfo["days"]
+              recitation.wednesday = "W" in rinfo["days"]
+              recitation.thursday = "R" in rinfo["days"]
+              recitation.friday = "F" in rinfo["days"]
+              recitation.saturday = "S" in rinfo["days"]
+              recitation.sunday = "U" in rinfo["days"]
+              recitation.save()
+      
+              lecture.recitations.add(recitation)
+              lecture.save()
 
 for (cn,pre,co) in classes:
   print "Parsing reqs for " + cn,

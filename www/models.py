@@ -11,7 +11,7 @@ class Course(models.Model):
   coreqs = models.OneToOneField('Clause', related_name='coreqs', null=True, blank=True)
 
 class Lecture(models.Model):
-  number = models.PositiveSmallIntegerField(default=1)
+  number = models.CharField(max_length=1)
   starttime = models.TimeField('lecture start time')
   endtime = models.TimeField('lecture end time')
   monday = models.BooleanField()
@@ -23,6 +23,7 @@ class Lecture(models.Model):
   sunday = models.BooleanField()
   professor = models.CharField(max_length=255)
   location = models.CharField(max_length=255)
+  course = models.ForeignKey(Course, related_name='lectures', null=True, blank=True)
 
 class Recitation(models.Model):
   letter = models.CharField(max_length=1)
@@ -35,7 +36,7 @@ class Recitation(models.Model):
   friday = models.BooleanField()
   saturday = models.BooleanField()
   sunday = models.BooleanField()
-  lectures = models.ManyToManyField(Lecture)
+  lectures = models.ManyToManyField(Lecture, related_name='recitations')
 
 class Clause(models.Model):
   courses = models.ManyToManyField(Course)
