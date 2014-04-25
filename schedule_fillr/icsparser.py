@@ -7,7 +7,7 @@ def parse_ics_file(f):
 	courselist = re.split(r"BEGIN:VEVENT", filetxt)
 	callist = []
 	for course in courselist:
-		coursename = re.search(r"SUMMARY:[^:]+:: (\d\d\d\d\d) ([A-Z\d])", course)
+		coursename = re.search(r"SUMMARY:[^:]+:: (\d\d\d\d\d) ([A-Z\d]+)", course)
 		if coursename != None:
 			callist.append(coursename.group(1) + " " + coursename.group(2))
         return callist
