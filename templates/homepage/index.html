@@ -1,0 +1,34 @@
+{% extends 'schedule-fillr/base.html' %}
+
+{% load static %}
+
+{% block title %}Schedule-fillr -- Home{% endblock %}
+
+{% block body_block %}
+<div class = "container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-6">
+	<img class="img-responsive img-rounded" src="{% static "images/place_holder.gif" %}">
+      </div>
+	  
+      <div class="col-md-6">
+        <h1 class="text-center"><span class="label label-primary">Schedule-fillr</span></h1><br>
+        <p class="text-center">
+	  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pulvinar diam vel nisl cursus, ullamcorper imperdiet turpis vestibulum. Mauris ut magna lorem. In lacinia quis est lacinia aliquam. Nulla egestas ligula porta sagittis suscipit. Mauris semper ligula vel fringilla egestas. In aliquet vel sapien sit amet semper. Etiam egestas sapien sed est lobortis, nec luctus odio commodo. Aliquam ac pellentesque enim. Donec cursus fringilla sollicitudin. Phasellus quam neque, interdum ut lobortis eu, iaculis in velit. Morbi dapibus lectus neque, et sollicitudin arcu mattis quis.
+	</p>
+      </div>
+    </div><!-- row -->
+  </div><!-- /.jumbotron -->
+</div><!-- /.container -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">&copy; 2014 </div>
+        <div class="col-md-6">
+            <p class="text-right"><a href="#">Contact Us</a></p>
+        </div>
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </footer>    
+{% endblock %}
