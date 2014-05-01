@@ -1,11 +1,17 @@
 $(document).ready(function () {
     addHours();
 
-    addEvent(0, 7, 120, "sample class", "GHC 4100", colors[1]);
-    addEvent(1, 11, 120, "sample class", "GHC 4100", colors[6]);
-    addEvent(2, 13, 120, "sample class", "GHC 4100", colors[3]);
-    addEvent(3, 15, 120, "sample class", "GHC 4100", colors[0]);
-    addEvent(4, 19, 120, "sample class", "GHC 4100", colors[7]);
+    addEvent(0, 9.5, 120, "15-213 Recitation", "WEH 5003", colors[1]);
+    addEvent(0, 11, 120, "16-311 Lecture", "NSH 3000", colors[3]);
+    addEvent(1, 12, 120, "16-385 Lecture", "BH A100", colors[0])
+    addEvent(3, 12, 120, "16-385 Lecture", "BH A100", colors[0]);
+    addEvent(1, 13.5, 120, "15-213 Lecture", "GHC 4401", colors[1]);
+    addEvent(3, 13.5, 120, "15-213 Lecture", "GHC 4401", colors[1]);
+    addEvent(1, 15.5, 120, "16-311 Recitation", "SH 100", colors[3]);
+    addEvent(2, 11, 120, "16-311 Lecture", "NSH 3000", colors[3]);
+    addEvent(1, 9, 120, "15-221 Lecture", "WEH 7000", colors[2]);
+    addEvent(3, 9, 120, "15-221 Lecture", "WEH 7000", colors[2]);
+    addEvent(4, 10.5, 120, "15-221 Recitation", "GHC 4100", colors[2]);
 });
 
 var colors = ['#00B64F', '#086FA2', '#D8005F', '#FF0000', '#FF9700', '#DE0052',
