@@ -1,4 +1,4 @@
 schedule-fillr
 ==============
 
-A webapp that helps you fill your CMU class schedule
+A webapp to fill empty spaces in your CMU class schedule with viable courses
